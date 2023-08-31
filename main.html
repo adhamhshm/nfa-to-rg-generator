@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="main.css">
+        <script src="main.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NFA -> RG</title>
+    </head>
+    <body>
+        <div class="nfa-rg-left">
+            <p><strong>NFA (Input)</strong></p>
+            <div>*Separate the variables using comma (,)</div>
+            <div>
+                <table class="input-table-nfa">
+                    <tr>
+                        <td>Σ</td>
+                        <td>
+                            <textarea id="string-variables" rows="1"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Q</td>
+                        <td>
+                            <textarea id="string-states" rows="1"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>START</td>
+                        <td>
+                            <textarea id="string-start-state" rows="1"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>FINAL</td>
+                        <td>
+                            <textarea id="string-final-states" rows="1"></textarea>
+                        </td>
+                    </tr>
+                  </table>
+            </div>
+            <button onclick="insertEpsilonVariable()">Insert &epsilon;</button>
+            <button onclick="generateTable()">Generate Transition Table</button>
+            <p><strong>Transition Table</strong></p>
+            <div class="nfa-table">
+                <table id="transition-table-nfa"></table>
+            </div>
+            <button onclick="convertNFAtoRG()">Convert NFA to RG</button>
+        </div>
+
+        <div class="nfa-rg-right">
+            <p><strong>Regular Grammar</strong></p>
+            <div class="nfa-table">
+                <table id="rg-table"></table>
+            </div>
+            <p><strong>Check Strings (Input)</strong></p>
+            <div>
+                <textarea id="string-to-check" rows="10" spellcheck="false"></textarea>
+                <textarea id="string-check-result" rows="10" cols="5" spellcheck="false"></textarea>
+            </div>
+            <button onclick="insertEpsilonVariableAtCheckString()">Insert &epsilon;</button>
+            <button onclick="getStringToCheck()">Check String</button>
+        </div>
+    </body>
+</html>
